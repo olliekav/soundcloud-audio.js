@@ -140,14 +140,10 @@ SoundCloud.prototype._json = function(url, callback) {
 };
 
 SoundCloud.prototype._transformTrack = function(track) {
-  if (this._baseUrl !== SOUNDCLOUD_API_URL) {
-    track.original_stream_url = track.stream_url;
-    track.stream_url = track.stream_url.replace(
-      SOUNDCLOUD_API_URL,
-      this._baseUrl
-    );
-  }
-
+  // Use the RSS feed url to stream due to 401 errors
+  track.stream_url = 'https://feeds.soundcloud.com/stream/'+track.id+'-'+track.permalink+'.mp3';
+  track.original_stream_url = track.stream_url;
+ 
   return track;
 };
 
