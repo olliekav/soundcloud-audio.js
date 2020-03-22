@@ -1,6 +1,6 @@
 'use strict';
 
-var SOUNDCLOUD_API_URL = 'https://api.soundcloud.com';
+var SOUNDCLOUD_API_URL = 'https://api-v2.soundcloud.com';
 
 var anchor;
 var keys = 'protocol hostname host pathname port search hash href'.split(' ');
